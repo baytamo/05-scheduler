@@ -18,10 +18,7 @@
     />
 
     <!-- google fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Tenor+Sans&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Paytone+One&family=Tenor+Sans&display=swap" rel="stylesheet">
 
     <!-- style sheet -->
     <link rel="stylesheet" href="Assets/style.css" />
@@ -33,8 +30,10 @@
     <div class="container">
       <header>
         <div class="row d-flex dateHolder justify-content-center">
+          <!-- show date -->
           <div class="col-6 m-3 p-4 col-sm-4 date"></div>
-
+          
+          <!-- show day, month, year -->
           <div class="col-6">
             <div class="col-12 m-3 p-4 dayOfWeek"></div>
             <div class="col-12 m-3 p-4 month"></div>
@@ -42,13 +41,14 @@
           </div>
         </div>
       </header>
-      <h2>Schedule a meeting or appointment below.</h2>
-      <!-- Timeblocks go here -->
+
+      <h2> Hours of operation are 1-7pm PST.<br/>Schedule a meeting or appointment below.</h2>
+
+      <!-- Timeblocks go here and are rendered as rows -->
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
-    <script src="Assets/moments.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="Assets/scripts.js"></script>
   </body>
 </html>

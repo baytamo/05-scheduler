@@ -34,8 +34,6 @@ $(document).ready(function () {
   function showTimeSlots() {
     // for loop to display all times
     for (let i = 0; i < schedule.length; i++) {
-      
-      
       // bootstrap row
       let $hourDiv = $("<div>").addClass("row timeSlot");
       let convertTime = 12 + parseInt(schedule[i].time);
@@ -48,7 +46,7 @@ $(document).ready(function () {
       // column 2 - this is for text area; add event listener
       let $apptBlock = $("<div>").addClass("apptBlock col-10");
       let $textArea = $("<textarea>").attr("type", "text");
-      // attr: read only after time passes, change to textarea
+      // attr: read only after time passes or is current, change to textarea
       $textArea.text(schedule[i].appt);
       $apptBlock.append($textArea);
       $hourDiv.append($apptBlock);
@@ -58,7 +56,6 @@ $(document).ready(function () {
       let $floppyDisc = $("<img>").addClass("floppyDisc");
       $floppyDisc.attr("src", "Assets/floppydisc.png").css("width", "25px");
       // add event listener that pushes input field value to array and saves it to screen;
-
       $floppyDisc.on("click", function () {
         let $textAreaInput = $.trim($textArea.val());
         event.preventDefault();
@@ -71,23 +68,25 @@ $(document).ready(function () {
       $floppyDiv.append($floppyDisc);
       $hourDiv.append($floppyDiv);
 
-      console.log(now, convertTime);
-
+      // row is different color and textarea is readonly if time has passed
       if (convertTime < now) {
         $hourDiv.css("background-color", "#ECECE1");
         $textArea.css("background-color", "#ECECE1");
         $textArea.prop("readonly", true);
-        $textArea.on("click", function(){
+        $textArea.on("click", function () {
           alert("You cannot edit an appointment after the time has passed.");
-        })
+        });
       }
-
+      // row is different color and textarea is readonly if time is now
       if (convertTime == now) {
-        $textArea.on("click", function(){
+        $textArea.on("click", function () {
           $textArea.prop("readonly", true);
-          alert("This event is currently taking place. You cannot add last minute appointments.");
-        })
+          alert(
+            "This event is currently taking place. You cannot add last minute appointments."
+          );
+        });
       }
+      // user can edit text if event is in the future
       if (convertTime > now) {
         $hourDiv.css("background-color", "#EDEDC8");
         $textArea.css("background-color", "#EDEDC8");
