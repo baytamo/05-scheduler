@@ -22,19 +22,27 @@
 
     <!-- style sheet -->
     <link rel="stylesheet" href="Assets/style.css" />
-    
+
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Appointment Booker</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-      <p id="currentTime" class="lead"></p>
-    </header>
+
+
+    
+
     <div class="container">
+
+      <header>
+  <div class="row d-flex justify-content-center">
+        <div class="col-12 m-3 p-4 col-sm-4 date"></div>
+        <div class="col-12 m-3 p-4 col-sm-3 dayOfWeek"></div>
+        <div class="col-12 m-3 p-4 col-sm-3 year"></div>
+      </div>
+      <div class="compareTimes"></div>
+      </header>
       <!-- Timeblocks go here -->
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

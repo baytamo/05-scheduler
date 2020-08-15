@@ -2,28 +2,18 @@ body {
   font-family: 'Tenor Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  color: #373700;
 }
 
-h1 {
+.date, .dayOfWeek, .year {
+  background-color: #FAF9C2;
   font-family: 'Paytone One', sans-serif;
+  color: #373700;
+  font-size: 90px;
+  border-radius: 20px;
+  border: #373700 1px solid;
 }
 
-textarea{
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
-
-.jumbotron {
-  text-align: center;
-  background-color: transparent;
-  color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
-}
 
 .description{
   white-space: pre-wrap;
@@ -34,51 +24,10 @@ textarea{
   border-radius: 15px;
 }
 
-/* .row {
-  white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
-} */
-
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
-
-.past {
-  background-color: #d3d3d3;
-  color: white;
-}
-
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-}
-
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
-}
-
 .timeSlot {
-  margin: 10px;
-  padding: 10px;
   background-color: #FAF9C2;
   border: #373700 1px solid;
+  border-radius: 10px;
 }
 
 .floppyDisc {
@@ -98,5 +47,4 @@ textarea {
   height: 100%;
   background-color: #FAF9C2;
   border: 0px;
-  margin: 2px;
 }
