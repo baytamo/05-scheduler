@@ -3,36 +3,45 @@ body {
   font-size: 16px;
   line-height: 1;
   color: #373700;
+  background-image: linear-gradient(white, #FAF9C2, #D6D693);
 }
-
-.date, .dayOfWeek, .year {
-  background-color: #FAF9C2;
+.container {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+.date {
+  font-size: 220px;
   font-family: 'Paytone One', sans-serif;
-  color: #373700;
-  font-size: 90px;
-  border-radius: 20px;
-  border: #373700 1px solid;
+  text-align: right;
 }
 
-
-.description{
-  white-space: pre-wrap;
+.dayOfWeek, .month, .year {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 30px;
+  border: 1px dotted #373700;;
 }
 
-.time-block{
+.dateHolder {
+  border-bottom: 20px dotted #373700;
+  margin-bottom: 100px;
+}
+
+h2 {
+  font-family: 'Paytone One', sans-serif;
+  margin-bottom: 20px;
   text-align: center;
-  border-radius: 15px;
 }
 
 .timeSlot {
-  background-color: #FAF9C2;
-  border: #373700 1px solid;
-  border-radius: 10px;
+  background-color: #F9F9E1;
+  padding: 20px;
+  border-bottom: #373700 1px dashed;
 }
 
-.floppyDisc {
+.floppyDisc { 
   float: right;
 }
+
 .floppyDisc:hover {
   filter: invert(100%);
 
@@ -43,8 +52,8 @@ body {
 }
 
 textarea {
+  background-color: #F9F9E1;
   width: 100%;
   height: 100%;
-  background-color: #FAF9C2;
   border: 0px;
 }

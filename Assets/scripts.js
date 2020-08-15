@@ -3,10 +3,11 @@ $(document).ready(function () {
   let $currentDay = $("#currentDay");
 
   // moments automatically current day
-  $(".date").text(moment().format("DD MMM"));
-  $(".dayOfWeek").text(moment().format("ddd"));
+  $(".date").text(moment().format("DD"));
+  $(".dayOfWeek").text(moment().format("dddd"));
+  $(".month").text(moment().format("MMMM"));
   $(".year").text(moment().format("YYYY"));
-  let now = moment().format("LT");
+  let now = moment().format("HH");
 
   // schedule object with initially empty values
   let schedule = [
@@ -33,16 +34,11 @@ $(document).ready(function () {
   function showTimeSlots() {
     // for loop to display all times
     for (let i = 0; i < schedule.length; i++) {
-      let convertTime = "0" + schedule[i].time + ":00" + " PM";
-      $(".compareTimes").text(convertTime + " " + now);
-      console.log(schedule[i].time);
-
-      if (moment().isAfter(convertTime)) {
-        $hourDiv.css("background-color", "hotpink");
-      }
+      
       
       // bootstrap row
-      let $hourDiv = $("<div>").addClass("row m-3 p-3 timeSlot");
+      let $hourDiv = $("<div>").addClass("row timeSlot");
+      let convertTime = 12 + parseInt(schedule[i].time);
 
       // column 1 - shows the hour of the appointment slot
       let $timeDisplay = $("<div>").addClass("timeDisplay col-1");
@@ -74,6 +70,28 @@ $(document).ready(function () {
       });
       $floppyDiv.append($floppyDisc);
       $hourDiv.append($floppyDiv);
+
+      console.log(now, convertTime);
+
+      if (convertTime < now) {
+        $hourDiv.css("background-color", "#ECECE1");
+        $textArea.css("background-color", "#ECECE1");
+        $textArea.prop("readonly", true);
+        $textArea.on("click", function(){
+          alert("You cannot edit an appointment after the time has passed.");
+        })
+      }
+
+      if (convertTime == now) {
+        $textArea.on("click", function(){
+          $textArea.prop("readonly", true);
+          alert("This event is currently taking place. You cannot add last minute appointments.");
+        })
+      }
+      if (convertTime > now) {
+        $hourDiv.css("background-color", "#EDEDC8");
+        $textArea.css("background-color", "#EDEDC8");
+      }
 
       // append entire row to html
       $container.append($hourDiv);
