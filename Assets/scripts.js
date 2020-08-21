@@ -11,13 +11,15 @@ $(document).ready(function () {
 
   // schedule object with initially empty values
   let schedule = [
+    { time: "9", appt: "" },
+    { time: "10", appt: "" },
+    { time: "11", appt: "" },
+    { time: "12", appt: "" },
     { time: "1", appt: "" },
     { time: "2", appt: "" },
     { time: "3", appt: "" },
     { time: "4", appt: "" },
     { time: "5", appt: "" },
-    { time: "6", appt: "" },
-    { time: "7", appt: "" },
   ];
 
   // check local storage
@@ -36,11 +38,18 @@ $(document).ready(function () {
     for (let i = 0; i < schedule.length; i++) {
       // bootstrap row
       let $hourDiv = $("<div>").addClass("row timeSlot");
-      let convertTime = 12 + parseInt(schedule[i].time);
-
+      let convertTime = parseInt(schedule[i].time);
+      if (i > 3) {
+        convertTime += 12;
+      }
       // column 1 - shows the hour of the appointment slot
       let $timeDisplay = $("<div>").addClass("timeDisplay col-1");
-      $timeDisplay.text(schedule[i].time + "pm");
+      if (i < 3) {
+        $timeDisplay.text(schedule[i].time + "am");
+      } else {
+        $timeDisplay.text(schedule[i].time + "pm");
+      }
+      
       $hourDiv.append($timeDisplay);
 
       // column 2 - this is for text area; add event listener
@@ -67,7 +76,7 @@ $(document).ready(function () {
       });
       $floppyDiv.append($floppyDisc);
       $hourDiv.append($floppyDiv);
-
+      
       // row is different color and textarea is readonly if time has passed
       if (convertTime < now) {
         $hourDiv.css("background-color", "#ECECE1");
