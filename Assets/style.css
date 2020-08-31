@@ -57,3 +57,21 @@ textarea {
   height: 100%;
   border: 0px;
 }
+
+@media (max-width:768px) {
+  .date {
+    font-size: 180px;
+  }
+
+  .dayOfWeek, .month, .year {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .dateHolder {
+    border-bottom: 10px dotted #373700;
+  }
+}
